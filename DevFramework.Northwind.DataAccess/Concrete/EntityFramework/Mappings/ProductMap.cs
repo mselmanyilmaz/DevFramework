@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevFramework.Northwind.DataAccess
+namespace DevFramework.Northwind.DataAccess.Concrete.EntityFramework.Mappings
 {
-    public class Class1
+    internal class ProductMap
     {
     }
 }
