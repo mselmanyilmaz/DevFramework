@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DevFramework.Northwind.DataAccess.Concrete.EntityFramework.Mappings;
+using DevFramework.Northwind.Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -9,5 +11,15 @@ namespace DevFramework.Northwind.DataAccess.Concrete.EntityFramework
 {
     public class NorthwindContext : DbContext
     {
+        public NorthwindContext()
+        {
+            Database.SetInitializer<NorthwindContext>(null); // Because we're using a ready database.. This code will prevent the migration..
+        }
+        public DbSet<Product> Products { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new ProductMap());
+        }
     }
 }
